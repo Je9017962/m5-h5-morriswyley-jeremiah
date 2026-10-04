@@ -1,9 +1,5 @@
 # Assignment 5: Audit a Website for Accessibility
 
-Portfolio site for "Internet Andrea," audited and fixed for accessibility (WCAG 2.1 AA).
-
-- **Repository:** `https://github.com/<your-username>/m5-hw5-lastname-firstname`
-- **Live site:** `https://<your-username>.github.io/m5-hw5-lastname-firstname/`
 
 &nbsp;
 ## Tools Used
