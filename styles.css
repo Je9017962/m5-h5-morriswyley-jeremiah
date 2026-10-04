@@ -1,0 +1,213 @@
+html {
+  background-color: #ffffff;
+  background-image: url("topography.svg");
+}
+
+body {
+  margin: 0 auto;
+  font-family: "Segoe UI", sans-serif;
+  /* A11y: was #999 (2.85:1). #333 on white = 12.63:1 */
+  color: #333;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  /* Bug fix: `border: 0 1px solid ...` is invalid (shorthand takes one width), so the
+     browser dropped it. Split into longhands to get the intended 1px side borders. */
+  border-style: solid;
+  border-width: 0 1px;
+  border-color: rgba(255, 255, 255, 0.77);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1800px;
+}
+
+/* A11y: skip link, hidden until it receives keyboard focus */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 10;
+  background-color: #ffffff;
+  color: #003d6b;
+  padding: 10px 16px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* <main> gets tabindex="-1" so the skip link moves focus there; it isn't a control,
+   so it doesn't need a focus ring */
+main:focus {
+  outline: none;
+}
+
+/* A11y: one consistent, highly visible focus indicator for every interactive element */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #005a9c;
+  outline-offset: 2px;
+}
+
+.nav {
+  background-color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav a {
+  text-decoration: none;
+  /* A11y: was #555 (1.69:1). #ffffff on #333 = 12.63:1 */
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* A11y: focus ring must be light to show against the dark nav */
+.nav a:focus-visible {
+  outline-color: #ffffff;
+}
+
+.hero {
+  /* A11y: dark overlay guarantees text contrast even over the white snow */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("mountains.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* A11y: was lightpink (1.45:1 over snow). White over the overlay is at least 3.95:1
+     at the brightest pixel, above the 3:1 needed for large text */
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.content {
+  padding: 140px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* A11y: heading changed from h3 to h2 for correct heading order */
+.content h2 {
+  font-size: 28px;
+  /* keep the original h3 default top margin (h2's default is 0.83em) */
+  margin-top: 1em;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.form-section {
+  width: 65%;
+  background-color: #eee;
+  padding: 20px 20px 40px;
+  margin: 0 auto 100px;
+}
+
+/* A11y: heading changed from h3 to h2 for correct heading order */
+.form-section h2 {
+  text-align: center;
+  font-size: 28px;
+  /* keep the original h3 default top margin (h2's default is 0.83em) */
+  margin-top: 1em;
+  margin-bottom: 40px;
+}
+
+/* A11y: visible labels for each form field */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  /* A11y: was #ccc (1.61:1). #767676 on white = 4.54:1, meets 3:1 for UI components */
+  border: 1px solid #767676;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  /* A11y: was #999 (2.85:1). #6b6b6b on white = 5.33:1 */
+  color: #6b6b6b;
+}
+
+.submit-btn {
+  /* The original <div> was a full-width block; a <button> shrinks to fit its text.
+     These three lines keep the original layout. */
+  display: block;
+  width: 100%;
+  text-align: left;
+  /* A11y: was #0077cc (4.66:1, passes). Darkened to #005a9c (7.14:1) for more margin */
+  background-color: #005a9c;
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  /* A11y: removed `outline: none`, which hid keyboard focus */
+}
+
+.submit-btn:hover {
+  background-color: #003d6b;
+}
+
+/* A11y: removed `textarea:focus { outline: none; }`, which hid keyboard focus */
+
+.footer {
+  margin-top: auto;
+  background-color: #333;
+  /* A11y: was #555 (1.69:1). #ffffff on #333 = 12.63:1 */
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+/* A11y: the 65%-wide form gets cramped on phones */
+@media (max-width: 600px) {
+  .form-section {
+    width: auto;
+    margin: 0 16px 60px;
+  }
+}
